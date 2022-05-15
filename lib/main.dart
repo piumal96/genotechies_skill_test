@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:genotechies/screens/signin_screen.dart';
+import 'package:genotechies/screens/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:  SignInScreen(),
+      home:  SignUpScreen(),
     );
   }
 }
