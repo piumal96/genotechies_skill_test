@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:genotechies/screens/signin_screen.dart';
 
+import '../services/authservice.dart';
+
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  TextEditingController emailController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
+  TextEditingController passwordConfirmController=TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +32,26 @@ class SignUpScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: "Email"),
             ),
             SizedBox(height: 20),
             TextField(
+              controller: passwordController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: "Password"),
             ),
             SizedBox(height: 20),
             TextField(
+              controller: passwordController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: "Confirm Password"),
             ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: Text("SignUp")),
+            ElevatedButton(onPressed: () {
+              authService().SignIn(emailController.text, passwordController.text);
+            }, child: Text("SignUp")),
             SizedBox(height: 20),
             TextButton(
                 onPressed: () {
